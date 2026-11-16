@@ -1,0 +1,9 @@
+# message
+std_msgs/Header header
+string robot_id
+geometry_msgs/Pose tcp_pose
+geometry_msgs/Pose tcp_vel
+geometry_msgs/Pose tcp_acc
+geometry_msgs/Wrench tcp_force_torque
+sensor_msgs/JointState joint_state
+std_msgs/Float64[] temperature

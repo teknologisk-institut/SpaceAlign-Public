@@ -1,0 +1,967 @@
+#usda 1.0
+(
+    customLayerData = {
+        dictionary cameraSettings = {
+            dictionary Front = {
+                double3 position = (5, 0, 0)
+                double radius = 5
+            }
+            dictionary Perspective = {
+                double3 position = (-0.9202354612345574, -4.161727789881718, 1.0460727585464948)
+                double3 target = (0.01625444249178387, -1.0648657027300925, 0.13711385109762708)
+            }
+            dictionary Right = {
+                double3 position = (0, -5, 0)
+                double radius = 5
+            }
+            dictionary Top = {
+                double3 position = (0, 0, 5)
+                double radius = 5
+            }
+            string boundCamera = "/OmniverseKit_Persp"
+        }
+        dictionary omni_layer = {
+            string authoring_layer = "./space_align_vispa_workcell.usda"
+            dictionary locked = {
+            }
+            dictionary muteness = {
+            }
+        }
+        dictionary renderSettings = {
+        }
+    }
+    defaultPrim = "World"
+    endTimeCode = 1000000
+    metersPerUnit = 1
+    startTimeCode = 0
+    timeCodesPerSecond = 60
+    upAxis = "Z"
+)
+
+def PhysicsScene "physicsScene" (
+    prepend apiSchemas = ["PhysxSceneAPI"]
+)
+{
+    vector3f physics:gravityDirection = (0, 0, 1)
+    float physics:gravityMagnitude = 0
+    uniform token physxScene:broadphaseType = "MBP"
+    bool physxScene:enableCCD = 1
+    bool physxScene:enableGPUDynamics = 0
+    bool physxScene:enableStabilization = 0
+    uniform token physxScene:solverType = "TGS"
+    uint physxScene:timeStepsPerSecond = 60
+}
+
+def Xform "World"
+{
+    def SphereLight "SphereLight1" (
+        apiSchemas = ["ShapingAPI"]
+    )
+    {
+        float inputs:intensity = 100000
+        float inputs:radius = 0.25
+        float inputs:shaping:cone:angle = 180
+        float intensity = 100000
+        float radius = 0.25
+        float shaping:cone:angle = 180
+        float shaping:cone:softness
+        float shaping:focus
+        color3f shaping:focusTint
+        asset shaping:ies:file
+        token ui:displayGroup = "Material Graphs"
+        token ui:displayName = "SphereLight"
+        int ui:order = 1024
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, -0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (-2, 0, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def SphereLight "SphereLight2" (
+        apiSchemas = ["ShapingAPI"]
+    )
+    {
+        float inputs:intensity = 100000
+        float inputs:radius = 0.25
+        float inputs:shaping:cone:angle = 180
+        float intensity = 100000
+        float radius = 0.25
+        float shaping:cone:angle = 180
+        float shaping:cone:softness
+        float shaping:focus
+        color3f shaping:focusTint
+        asset shaping:ies:file
+        token ui:displayGroup = "Material Graphs"
+        token ui:displayName = "SphereLight"
+        int ui:order = 1024
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, -0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (2, 0, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def SphereLight "SphereLight3" (
+        apiSchemas = ["ShapingAPI"]
+    )
+    {
+        float inputs:intensity = 100000
+        float inputs:radius = 0.25
+        float inputs:shaping:cone:angle = 180
+        float intensity = 100000
+        float radius = 0.25
+        float shaping:cone:angle = 180
+        float shaping:cone:softness
+        float shaping:focus
+        color3f shaping:focusTint
+        asset shaping:ies:file
+        token ui:displayGroup = "Material Graphs"
+        token ui:displayName = "SphereLight"
+        int ui:order = 1024
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, -0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, -2)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Platform" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysxRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        token ui:displayGroup = "Material Graphs"
+        token ui:displayName = "Platform"
+        int ui:order = 1024
+        float3 xformOp:rotateXYZ = (0, -0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+
+        def Cube "Cube" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysxTriangleMeshCollisionAPI", "PhysxConvexDecompositionCollisionAPI", "PhysxTriangleMeshSimplificationCollisionAPI", "PhysxSDFMeshCollisionAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxConvexHullCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+            uniform token physics:approximation = "sdf"
+            double size = 1
+            quatd xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:scale = (3, 2, 0.1)
+            double3 xformOp:translate = (0, 0, -0.51)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "Cube_01" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysxTriangleMeshCollisionAPI", "PhysxConvexDecompositionCollisionAPI", "PhysxTriangleMeshSimplificationCollisionAPI", "PhysxSDFMeshCollisionAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxConvexHullCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+            uniform token physics:approximation = "sdf"
+            double size = 1
+            quatd xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:scale = (0.3, 0.3, 0.46)
+            double3 xformOp:translate = (0, 0, -0.23)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Mesh "Cube_02" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxConvexHullCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 1, 3, 2, 4, 6, 7, 5, 6, 2, 3, 7, 4, 5, 1, 0, 4, 0, 2, 6, 5, 7, 3, 1]
+            normal3f[] normals = [(0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 1, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (-1, 0, 0), (-1, 0, 0), (-1, 0, 0), (-1, 0, 0), (1, 0, 0), (1, 0, 0), (1, 0, 0), (1, 0, 0)] (
+                interpolation = "faceVarying"
+            )
+            uniform token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 1
+            point3f[] points = [(-0.5, -0.5, 0.5), (0.5, -0.5, 0.5), (-0.5, 0.5, 0.5), (0.5, 0.5, 0.5), (-0.5, -0.5, -0.5), (0.5, -0.5, -0.5), (-0.5, 0.5, -0.5), (0.5, 0.5, -0.5)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1), (1, 0), (1, 1), (0, 1), (0, 0), (0, 1), (0, 0), (1, 0), (1, 1), (0, 0), (1, 0), (1, 1), (0, 1), (0, 0), (1, 0), (1, 1), (0, 1), (1, 0), (1, 1), (0, 1), (0, 0)] (
+                interpolation = "faceVarying"
+            )
+            uniform token subdivisionScheme = "none"
+            quatd xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0, -0.9918248644648348, -0.7280589232053423)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def "VISPA" (
+        prepend payload = @./vispa.usda@
+    )
+    {
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "joint_link_0"
+        {
+        }
+
+        over "joint_link_1"
+        {
+            over "joint_J1"
+            {
+                float drive:angular:physics:targetPosition = 0
+                float state:angular:physics:position = 0
+                float state:angular:physics:velocity = 0
+            }
+        }
+
+        over "joint_link_2"
+        {
+            over "joint_J2"
+            {
+                float drive:angular:physics:targetPosition = 0
+                float state:angular:physics:position = 0
+                float state:angular:physics:velocity = 0
+            }
+        }
+
+        over "joint_link_3"
+        {
+            over "joint_J3"
+            {
+                float drive:angular:physics:targetPosition = 0
+                float state:angular:physics:position = 0
+                float state:angular:physics:velocity = 0
+            }
+        }
+
+        over "joint_link_4"
+        {
+            over "joint_J4"
+            {
+                float drive:angular:physics:targetPosition = 0
+                float state:angular:physics:position = 0
+                float state:angular:physics:velocity = 0
+            }
+        }
+
+        over "joint_link_5"
+        {
+            over "joint_J5"
+            {
+                float drive:angular:physics:targetPosition = 0
+                float state:angular:physics:position = 0
+                float state:angular:physics:velocity = 0
+            }
+        }
+
+        over "joint_link_6"
+        {
+            over "joint_J6"
+            {
+                float drive:angular:physics:targetPosition = 0
+                float state:angular:physics:position = 0
+                float state:angular:physics:velocity = 0
+            }
+        }
+    }
+
+    def PhysicsFixedJoint "Robot2PlatformJoint"
+    {
+        rel physics:body0 = </World/Platform>
+        rel physics:body1 = </World/VISPA/joint_link_0>
+        float physics:breakForce = inf
+        float physics:breakTorque = inf
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+    }
+
+    def "AttachTool" (
+        prepend payload = @./attach_tool.usda@
+    )
+    {
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 1.955)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "base"
+        {
+        }
+
+        over "Finger1"
+        {
+        }
+
+        over "Finger2"
+        {
+        }
+    }
+
+    def PhysicsFixedJoint "FixedJoint"
+    {
+        rel physics:body0 = </World/VISPA/joint_link_6>
+        rel physics:body1 = </World/AttachTool/base>
+        float physics:breakForce = inf
+        float physics:breakTorque = inf
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (0.7071068, 0, 0.7071068, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+    }
+
+    def Xform "Winch" (
+        references = @./winch.usda@
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, -0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (-1, -0.8, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+
+        over "Winch"
+        {
+            over "AUTOGEN"
+            {
+                over "Cylinder"
+                {
+                    over "CylinderGeo"
+                    {
+                    }
+
+                    over "Rope1"
+                    {
+                        over "Bodies"
+                        {
+                            over "capsule_0"
+                            {
+                            }
+
+                            over "capsule_1"
+                            {
+                            }
+
+                            over "capsule_10"
+                            {
+                            }
+
+                            over "capsule_11"
+                            {
+                            }
+
+                            over "capsule_12"
+                            {
+                            }
+
+                            over "capsule_13"
+                            {
+                            }
+
+                            over "capsule_14"
+                            {
+                            }
+
+                            over "capsule_15"
+                            {
+                            }
+
+                            over "capsule_16"
+                            {
+                            }
+
+                            over "capsule_17"
+                            {
+                            }
+
+                            over "capsule_18"
+                            {
+                            }
+
+                            over "capsule_19"
+                            {
+                            }
+
+                            over "capsule_2"
+                            {
+                            }
+
+                            over "capsule_20"
+                            {
+                            }
+
+                            over "capsule_21"
+                            {
+                            }
+
+                            over "capsule_22"
+                            {
+                            }
+
+                            over "capsule_23"
+                            {
+                            }
+
+                            over "capsule_24"
+                            {
+                            }
+
+                            over "capsule_25"
+                            {
+                            }
+
+                            over "capsule_26"
+                            {
+                            }
+
+                            over "capsule_27"
+                            {
+                            }
+
+                            over "capsule_28"
+                            {
+                            }
+
+                            over "capsule_29"
+                            {
+                            }
+
+                            over "capsule_3"
+                            {
+                            }
+
+                            over "capsule_30"
+                            {
+                            }
+
+                            over "capsule_31"
+                            {
+                            }
+
+                            over "capsule_32"
+                            {
+                            }
+
+                            over "capsule_33"
+                            {
+                            }
+
+                            over "capsule_34"
+                            {
+                            }
+
+                            over "capsule_35"
+                            {
+                            }
+
+                            over "capsule_36"
+                            {
+                            }
+
+                            over "capsule_37"
+                            {
+                            }
+
+                            over "capsule_38"
+                            {
+                            }
+
+                            over "capsule_39"
+                            {
+                            }
+
+                            over "capsule_4"
+                            {
+                            }
+
+                            over "capsule_40"
+                            {
+                            }
+
+                            over "capsule_41"
+                            {
+                            }
+
+                            over "capsule_42"
+                            {
+                            }
+
+                            over "capsule_43"
+                            {
+                            }
+
+                            over "capsule_44"
+                            {
+                            }
+
+                            over "capsule_45"
+                            {
+                            }
+
+                            over "capsule_46"
+                            {
+                            }
+
+                            over "capsule_47"
+                            {
+                            }
+
+                            over "capsule_48"
+                            {
+                            }
+
+                            over "capsule_49"
+                            {
+                            }
+
+                            over "capsule_5"
+                            {
+                            }
+
+                            over "capsule_50"
+                            {
+                            }
+
+                            over "capsule_51"
+                            {
+                            }
+
+                            over "capsule_52"
+                            {
+                            }
+
+                            over "capsule_53"
+                            {
+                            }
+
+                            over "capsule_54"
+                            {
+                            }
+
+                            over "capsule_55"
+                            {
+                            }
+
+                            over "capsule_56"
+                            {
+                            }
+
+                            over "capsule_57"
+                            {
+                            }
+
+                            over "capsule_58"
+                            {
+                            }
+
+                            over "capsule_59"
+                            {
+                            }
+
+                            over "capsule_6"
+                            {
+                            }
+
+                            over "capsule_60"
+                            {
+                            }
+
+                            over "capsule_61"
+                            {
+                            }
+
+                            over "capsule_62"
+                            {
+                            }
+
+                            over "capsule_63"
+                            {
+                            }
+
+                            over "capsule_64"
+                            {
+                            }
+
+                            over "capsule_65"
+                            {
+                            }
+
+                            over "capsule_66"
+                            {
+                            }
+
+                            over "capsule_67"
+                            {
+                            }
+
+                            over "capsule_68"
+                            {
+                            }
+
+                            over "capsule_69"
+                            {
+                            }
+
+                            over "capsule_7"
+                            {
+                            }
+
+                            over "capsule_70"
+                            {
+                            }
+
+                            over "capsule_71"
+                            {
+                            }
+
+                            over "capsule_72"
+                            {
+                            }
+
+                            over "capsule_73"
+                            {
+                            }
+
+                            over "capsule_74"
+                            {
+                            }
+
+                            over "capsule_75"
+                            {
+                            }
+
+                            over "capsule_76"
+                            {
+                            }
+
+                            over "capsule_77"
+                            {
+                            }
+
+                            over "capsule_78"
+                            {
+                            }
+
+                            over "capsule_79"
+                            {
+                            }
+
+                            over "capsule_8"
+                            {
+                            }
+
+                            over "capsule_80"
+                            {
+                            }
+
+                            over "capsule_81"
+                            {
+                            }
+
+                            over "capsule_82"
+                            {
+                            }
+
+                            over "capsule_83"
+                            {
+                            }
+
+                            over "capsule_84"
+                            {
+                            }
+
+                            over "capsule_85"
+                            {
+                            }
+
+                            over "capsule_86"
+                            {
+                            }
+
+                            over "capsule_87"
+                            {
+                            }
+
+                            over "capsule_88"
+                            {
+                            }
+
+                            over "capsule_89"
+                            {
+                            }
+
+                            over "capsule_9"
+                            {
+                            }
+
+                            over "capsule_90"
+                            {
+                            }
+
+                            over "capsule_91"
+                            {
+                            }
+
+                            over "capsule_92"
+                            {
+                            }
+
+                            over "capsule_93"
+                            {
+                            }
+
+                            over "capsule_94"
+                            {
+                            }
+
+                            over "capsule_95"
+                            {
+                            }
+
+                            over "capsule_96"
+                            {
+                            }
+
+                            over "capsule_97"
+                            {
+                            }
+
+                            over "capsule_98"
+                            {
+                            }
+
+                            over "capsule_99"
+                            {
+                            }
+
+                            over "capsule_start"
+                            {
+                            }
+                        }
+                    }
+                }
+            }
+
+            over "AttachToolAdaptor"
+            {
+            }
+        }
+    }
+}
+
+def OmniGraph "ActionGraph"
+{
+    token evaluationMode = "Automatic"
+    token evaluator:type = "execution"
+    token fabricCacheBacking = "StageWithoutHistory"
+    int2 fileFormatVersion = (1, 9)
+    token pipelineStage = "pipelineStageSimulation"
+    token ui:displayGroup = "Material Graphs"
+    token ui:displayName = "ActionGraph"
+    int ui:order = 1024
+    uniform token[] xformOpOrder = []
+
+    def OmniGraphNode "OnPlaybackTick"
+    {
+        token node:type = "omni.graph.action.OnPlaybackTick"
+        int node:typeVersion = 2
+        custom double outputs:deltaSeconds
+        custom double outputs:frame
+        custom uint outputs:tick (
+            customData = {
+                bool isExecution = 1
+            }
+        )
+        custom double outputs:time
+    }
+
+    def OmniGraphNode "PublishJointState"
+    {
+        custom uint64 inputs:context
+        uint64 inputs:context.connect = </ActionGraph/ros2_context.outputs:context>
+        custom uint inputs:execIn (
+            customData = {
+                bool isExecution = 1
+            }
+        )
+        uint inputs:execIn.connect = </ActionGraph/OnPlaybackTick.outputs:tick>
+        custom string inputs:nodeNamespace
+        custom string inputs:qosProfile
+        custom uint64 inputs:queueSize
+        custom rel inputs:targetPrim = </World/VISPA> (
+            customData = {
+                dictionary omni = {
+                    dictionary graph = {
+                        string relType = "target"
+                    }
+                }
+            }
+        )
+        custom double inputs:timeStamp
+        double inputs:timeStamp.connect = </ActionGraph/ReadSimTime.outputs:simulationTime>
+        custom string inputs:topicName = "robot_joint_states"
+        token node:type = "isaacsim.ros2.bridge.ROS2PublishJointState"
+        int node:typeVersion = 1
+    }
+
+    def OmniGraphNode "SubscribeJointState"
+    {
+        custom uint64 inputs:context
+        uint64 inputs:context.connect = </ActionGraph/ros2_context.outputs:context>
+        custom uint inputs:execIn (
+            customData = {
+                bool isExecution = 1
+            }
+        )
+        uint inputs:execIn.connect = </ActionGraph/OnPlaybackTick.outputs:tick>
+        custom string inputs:nodeNamespace
+        custom string inputs:qosProfile
+        custom uint64 inputs:queueSize
+        custom string inputs:topicName = "robot_joint_commands"
+        token node:type = "isaacsim.ros2.bridge.ROS2SubscribeJointState"
+        int node:typeVersion = 2
+        custom double[] outputs:effortCommand
+        custom uint outputs:execOut (
+            customData = {
+                bool isExecution = 1
+            }
+        )
+        custom token[] outputs:jointNames
+        custom double[] outputs:positionCommand
+        custom double outputs:timeStamp
+        custom double[] outputs:velocityCommand
+    }
+
+    def OmniGraphNode "ArticulationController"
+    {
+        custom double[] inputs:effortCommand
+        double[] inputs:effortCommand.connect = </ActionGraph/SubscribeJointState.outputs:effortCommand>
+        custom uint inputs:execIn (
+            customData = {
+                bool isExecution = 1
+            }
+        )
+        uint inputs:execIn.connect = </ActionGraph/OnPlaybackTick.outputs:tick>
+        custom int[] inputs:jointIndices
+        custom token[] inputs:jointNames
+        token[] inputs:jointNames.connect = </ActionGraph/SubscribeJointState.outputs:jointNames>
+        custom double[] inputs:positionCommand
+        double[] inputs:positionCommand.connect = </ActionGraph/SubscribeJointState.outputs:positionCommand>
+        custom string inputs:robotPath = "/World/VISPA"
+        custom rel inputs:targetPrim (
+            customData = {
+                dictionary omni = {
+                    dictionary graph = {
+                        string relType = "target"
+                    }
+                }
+            }
+        )
+        custom double[] inputs:velocityCommand
+        double[] inputs:velocityCommand.connect = </ActionGraph/SubscribeJointState.outputs:velocityCommand>
+        token node:type = "isaacsim.core.nodes.IsaacArticulationController"
+        int node:typeVersion = 1
+    }
+
+    def OmniGraphNode "ReadSimTime"
+    {
+        custom uint64 inputs:referenceTimeDenominator
+        custom int64 inputs:referenceTimeNumerator
+        custom bool inputs:resetOnStop
+        token node:type = "isaacsim.core.nodes.IsaacReadSimulationTime"
+        int node:typeVersion = 1
+        custom double outputs:simulationTime
+    }
+
+    def OmniGraphNode "ros2_context"
+    {
+        custom uchar inputs:domain_id = 0
+        custom bool inputs:useDomainIDEnvVar = 1
+        token node:type = "isaacsim.ros2.bridge.ROS2Context"
+        int node:typeVersion = 2
+        custom uint64 outputs:context
+    }
+
+    def OmniGraphNode "ros2_publish_clock" (
+        prepend apiSchemas = ["NodeGraphNodeAPI"]
+    )
+    {
+        custom uint64 inputs:context
+        custom uint inputs:execIn (
+            customData = {
+                bool isExecution = 1
+            }
+        )
+        prepend uint inputs:execIn.connect = </ActionGraph/OnPlaybackTick.outputs:tick>
+        custom string inputs:nodeNamespace
+        custom string inputs:qosProfile
+        custom uint64 inputs:queueSize
+        custom double inputs:timeStamp
+        prepend double inputs:timeStamp.connect = </ActionGraph/ReadSimTime.outputs:simulationTime>
+        custom string inputs:topicName
+        token node:type = "isaacsim.ros2.bridge.ROS2PublishClock"
+        int node:typeVersion = 1
+    }
+}
+
+def "Render" (
+    hide_in_stage_window = true
+    no_delete = true
+)
+{
+    def "OmniverseKit"
+    {
+        def "HydraTextures" (
+            hide_in_stage_window = true
+            no_delete = true
+        )
+        {
+            def RenderProduct "omni_kit_widget_viewport_ViewportTexture_0" (
+                prepend apiSchemas = ["OmniRtxSettingsCommonAdvancedAPI_1", "OmniRtxSettingsRtAdvancedAPI_1", "OmniRtxSettingsPtAdvancedAPI_1", "OmniRtxPostColorGradingAPI_1", "OmniRtxPostChromaticAberrationAPI_1", "OmniRtxPostBloomPhysicalAPI_1", "OmniRtxPostMatteObjectAPI_1", "OmniRtxPostCompositingAPI_1", "OmniRtxPostDofAPI_1", "OmniRtxPostMotionBlurAPI_1", "OmniRtxPostTvNoiseAPI_1", "OmniRtxPostTonemapIrayReinhardAPI_1", "OmniRtxPostDebugSettingsAPI_1", "OmniRtxDebugSettingsAPI_1"]
+                hide_in_stage_window = true
+                no_delete = true
+            )
+            {
+                rel camera = </OmniverseKit_Persp>
+                token omni:rtx:background:source:texture:textureMode = "repeatMirrored"
+                token omni:rtx:background:source:type = "domeLight"
+                bool omni:rtx:dlss:frameGeneration = 0
+                bool omni:rtx:material:db:nonVisualMaterialCSV:enabled = 0
+                bool omni:rtx:material:db:syncLoads = 1
+                token omni:rtx:post:dlss:execMode = "performance"
+                bool omni:rtx:post:registeredCompositing:invertColorCorrection = 1
+                bool omni:rtx:post:registeredCompositing:invertToneMap = 1
+                bool omni:rtx:pt:lightcache:cached:dontResolveConflicts = 1
+                int omni:rtx:pt:maxSamplesPerLaunch = 2073600
+                int omni:rtx:pt:mgpu:maxPixelsPerRegionExponent = 12
+                color3f omni:rtx:rt:ambientLight:color = (0.1, 0.1, 0.1)
+                bool omni:rtx:rt:demoire = 0
+                bool omni:rtx:rt:ecoMode:enabled
+                bool omni:rtx:rt:lightcache:spatialCache:dontResolveConflicts = 1
+                bool omni:rtx:scene:hydra:materialSyncLoads = 1
+                bool omni:rtx:scene:hydra:mdlMaterialWarmup = 1
+                uint omni:rtx:viewTile:limit = 4294967295
+                rel orderedVars = </Render/Vars/LdrColor>
+                custom bool overrideClipRange = 0
+                uniform int2 resolution = (1280, 720)
+            }
+        }
+    }
+
+    def RenderSettings "OmniverseGlobalRenderSettings" (
+        prepend apiSchemas = ["OmniRtxSettingsGlobalRtAdvancedAPI_1", "OmniRtxSettingsGlobalPtAdvancedAPI_1"]
+        no_delete = true
+    )
+    {
+        rel products = </Render/OmniverseKit/HydraTextures/omni_kit_widget_viewport_ViewportTexture_0>
+    }
+
+    def "Vars"
+    {
+        def RenderVar "LdrColor" (
+            hide_in_stage_window = true
+            no_delete = true
+        )
+        {
+            uniform string sourceName = "LdrColor"
+        }
+    }
+}
+

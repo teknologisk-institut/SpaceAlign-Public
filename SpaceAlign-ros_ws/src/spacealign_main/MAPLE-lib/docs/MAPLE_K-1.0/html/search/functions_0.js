@@ -1,0 +1,6 @@
+var searchData=
+[
+  ['aple_0',['aple',['../classOffline_1_1APLE.html#a21482c984a7029715116cf03e407a790',1,'Offline::APLE::APLE(const std::string &amp;path, std::function&lt; double(const std::vector&lt; Recovery::Action&lt; extAction &gt; &gt; &amp;)&gt; _sim_func, std::function&lt; void(std::string)&gt; load_sim_func)'],['../classOffline_1_1APLE.html#adf85b513f469d9e9ff1ea464a2d8d763',1,'Offline::APLE::APLE(const APLE &amp;other)'],['../classOffline_1_1APLE.html#a02b5e81fc6ed89cb31b9543eaa04a9ce',1,'Offline::APLE::APLE(APLE &amp;&amp;) noexcept=default']]],
+  ['aplecore_1',['aplecore',['../classOffline_1_1detail_1_1APLECore.html#a5bc802c7d64dde66791a52227abd8518',1,'Offline::detail::APLECore::APLECore(const std::string &amp;path, SimulationFunction simulate, LoadStateFunction load_state)'],['../classOffline_1_1detail_1_1APLECore.html#a9fa28b906f3413f4bc553a50917cd44f',1,'Offline::detail::APLECore::APLECore(const APLECore &amp;other, SimulationFunction simulate)']]],
+  ['apply_5frelaxation_2',['apply_relaxation',['../structConstraintRelaxer.html#a9b8a48208cbd4ed2704e6cde3504672b',1,'ConstraintRelaxer::apply_relaxation()'],['../classMAL.html#a4ecf672a76875fbef418d20d2ce73352',1,'MAL::apply_relaxation()']]]
+];

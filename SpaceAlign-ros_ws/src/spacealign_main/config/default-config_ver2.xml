@@ -1,0 +1,281 @@
+<?xml version ="1.0"?>
+<joint_constraints>
+    
+    <power>
+        <max>8</max>
+        <min>0</min>
+    </power>
+    <torque_norm>
+        <max>500</max>
+        <min>-500</min>
+        <!-- <noise>0.2</noise> -->
+    </torque_norm>
+    <joint_level>
+        <!-- <temperature>
+            <max>60</max>
+            <min>0</min>
+        </temperature> -->
+        <torque>
+            <max>180</max>
+            <min>-180</min>
+            <!-- <tolerance>0.2</tolerance> -->
+        </torque>
+        <angle_velocity>
+            <max>1</max>
+            <min>-1</min>
+            <!-- <tolerance>0.2</tolerance> -->
+        </angle_velocity>
+        <angle_acceleration>
+            <max>0.8</max>
+            <min>-0.8</min>
+            <!-- <tolerance>0.2</tolerance> -->
+        </angle_acceleration>
+    </joint_level>
+
+</joint_constraints>
+
+<cartesian_constraints>
+    <rotation_rep>quat</rotation_rep>
+    <!-- Default is radians denoted RAD or rad -->
+    <angle_type>deg</angle_type>
+    <free> 
+        <volume>
+            <!-- XYZ - offset  -->
+            <offset> 0, 0, 0 </offset>
+            <!-- RPY offset -->
+            <angle_offset rep="rpy"> 0, 0, 0 </angle_offset>
+            <!-- Dimensions of the zone, relative to target pose -->
+            <dimensions> 30, 30, 30 </dimensions>
+        </volume>
+        <constraints>
+            <force>
+                <norm>
+                    <max>100</max>
+                    <min>-100</min>
+                </norm>
+                <component>
+                    <max>150, 150, 200</max>
+                    <min>-150, -150, -200</min>
+                </component>
+            </force>
+            <torque>
+                <norm>
+                    <max>80</max>
+                    <min>-80</min>
+                </norm>
+                <component>
+                    <max>20, 20, 40</max>
+                    <min>-20, -20, -40</min>
+                </component>
+            </torque>
+            <velocity>
+                <norm>
+                    <max>10</max>
+                    <min>-10</min>
+                </norm>
+                <component>
+                    <max>2, 2, 4</max>
+                    <min>-2, -2, -4</min>
+                </component>
+            </velocity>
+            <acceleration>
+                <norm>
+                    <max>10</max>
+                    <min>-10</min>
+                </norm>
+                <component>
+                    <max>2, 2, 4</max>
+                    <min>-2, -2, -4</min>
+                </component>
+            </acceleration>
+            <angular_velocity>
+                <max>10</max>
+                <min>-10</min>
+            </angular_velocity>
+            <angular_acceleration>
+                <max>10</max>
+                <min>-10</min>
+            </angular_acceleration>
+        </constraints>
+    </free> 
+    <expected> 
+        <volume>
+            <!-- XYZ - offset  -->
+            <offset> 0,0,-1 </offset>
+            <!-- quaternion [w,<x,y,z>]  offset -->
+            <angle_offset rep="quat"> 0.8213938, 0.3830222, -0.1786062, 0.3830222 </angle_offset>
+            <!-- Dimensions of the zone, relative to target pose -->
+            <dimensions> 0.5, 0.5, 0.5 </dimensions>
+        </volume>
+        <constraints>
+            <force>
+                <norm>
+                    <max>10</max>
+                    <min>-10</min>
+                </norm>
+                <component>
+                    <max>2, 2, 4</max>
+                    <min>-2, -2, -4</min>
+                </component>
+            </force>
+            <torque>
+                <norm>
+                    <max>10</max>
+                    <min>-10</min>
+                </norm>
+                <component>
+                    <max>2, 2, 4</max>
+                    <min>-2, -2, -4</min>
+                </component>
+            </torque>
+            <velocity>
+                <norm>
+                    <max>10</max>
+                    <min>-1</min>
+                </norm>
+                <component>
+                    <max>2, 2, 4</max>
+                    <min>-2, -2, -4</min>
+                </component>
+            </velocity>
+            <acceleration>
+                <norm>
+                    <max>10</max>
+                    <min>-1</min>
+                </norm>
+                <component>
+                    <max>2, 2, 4</max>
+                    <min>-2, -2, -4</min>
+                </component>
+            </acceleration>
+            <angular_velocity>
+                <max>10</max>
+                <min>-1</min>
+            </angular_velocity>
+            <angular_acceleration>
+                <max>10</max>
+                <min>-1</min>
+            </angular_acceleration>
+        </constraints>
+    </expected>
+    <contact> 
+        <volume>
+            <!-- XYZ - offset  -->
+            <offset> 0,0,-0.25 </offset>
+            <!-- offset -->
+            <angle_offset> 1, 0, 0, 0 </angle_offset>
+            <!-- Dimensions of the zone, relative to target pose -->
+            <dimensions> 0.2, 0.2, 0.5 </dimensions>
+        </volume>
+        <constraints>
+            <force>
+                <norm>
+                    <max>10</max>
+                    <min>-1</min>
+                </norm>
+                <component>
+                    <max>2, 2, 4</max>
+                    <min>-2, -2, -4</min>
+                </component>
+            </force>
+            <torque>
+                <norm>
+                    <max>10</max>
+                    <min>-1</min>
+                </norm>
+                <component>
+                    <max>2, 2, 4</max>
+                    <min>-2, -2, -4</min>
+                </component>
+            </torque>
+            <velocity>
+                <norm>
+                    <max>10</max>
+                    <min>-1</min>
+                </norm>
+                <component>
+                    <max>2, 2, 4</max>
+                    <min>-2, -2, -4</min>
+                </component>
+            </velocity>
+            <acceleration>
+                <norm>
+                    <max>10</max>
+                    <min>-1</min>
+                </norm>
+                <component>
+                    <max>2, 2, 4</max>
+                    <min>-2, -2, -4</min>
+                </component>
+            </acceleration>
+            <angular_velocity>
+                <max>10</max>
+                <min>-1</min>
+            </angular_velocity>
+            <angular_acceleration>
+                <max>10</max>
+                <min>-1</min>
+            </angular_acceleration>
+        </constraints>
+    </contact>
+    <past_contact> 
+        <volume>
+            <!-- XYZ - offset  -->
+            <offset> 0, 0, 0.51 </offset>
+            <!-- RPY offset -->
+            <angle_offset rep="rpy"> 0, 0, 0 </angle_offset>
+            <!-- Dimensions of the zone, relative to target pose -->
+            <dimensions> 10, 10, 1 </dimensions>
+        </volume>
+        <constraints>
+            <force>
+                <norm>
+                    <max>10</max>
+                    <min>-1</min>
+                </norm>
+                <component>
+                    <max>2, 2, 4</max>
+                    <min>-2, -2, -4</min>
+                </component>
+            </force>
+            <torque>
+                <norm>
+                    <max>10</max>
+                    <min>-1</min>
+                </norm>
+                <component>
+                    <max>2, 2, 4</max>
+                    <min>-2, -2, -4</min>
+                </component>
+            </torque>
+            <velocity>
+                <norm>
+                    <max>10</max>
+                    <min>-1</min>
+                </norm>
+                <component>
+                    <max>2, 2, 4</max>
+                    <min>-2, -2, -4</min>
+                </component>
+            </velocity>
+            <acceleration>
+                <norm>
+                    <max>10</max>
+                    <min>-1</min>
+                </norm>
+                <component>
+                    <max>2, 2, 4</max>
+                    <min>-2, -2, -4</min>
+                </component>
+            </acceleration>
+            <angular_velocity>
+                <max>10</max>
+                <min>-1</min>
+            </angular_velocity>
+            <angular_acceleration>
+                <max>10</max>
+                <min>-1</min>
+            </angular_acceleration>
+        </constraints>
+    </past_contact>
+</cartesian_constraints>

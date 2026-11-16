@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot name="Robotiq_Hand_E_edit">
+  <joint name="Slider_1" type="prismatic">
+    <origin xyz="0.01125 -0.0019 -0.0357727" rpy="3.1415927 0. 0. "/>
+    <parent link="RobotIq_Hand_E_base"/>
+    <child link="left_gripper"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="0." upper="0.025" effort="0." velocity="0."/>
+  </joint>
+  <joint name="Slider_2" type="prismatic">
+    <origin xyz="-0.01125 -0.0019 0.0357727" rpy="0. 0. 0."/>
+    <parent link="RobotIq_Hand_E_base"/>
+    <child link="right_gripper"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="0." upper="0.025" effort="0." velocity="0."/>
+  </joint>
+  <link name="RobotIq_Hand_E_base">
+    <inertial>
+      <origin xyz="0.0000002 -0.0469133 0.0000849" rpy="0. 0. 0."/>
+      <mass value="0.7038173"/>
+      <inertia ixx="0.0003857" ixy="0." ixz="0." iyy="0.0006642" iyz="0." izz="0.0006652"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/base_link_toothed_lock_washer_metric_robotiq_11ROBOTIQ_HAND_E_DEFEATURE_toothed_lock_washer_metric_robotiq_11ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/base_link_Group3ROBOTIQ_HAND_E_DEFEATURE_Group3ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/base_link_socket_head_cap_screw_iso_robotiq_6ROBOTIQ_HAND_E_DEFEATURE_socket_head_cap_screw_iso_robotiq_6ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/base_link_toothed_lock_washer_metric_robotiq_13ROBOTIQ_HAND_E_DEFEATURE_toothed_lock_washer_metric_robotiq_13ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/Group3ROBOTIQ_HAND_E_DEFEATURE_01_Group3ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/base_link_toothed_lock_washer_metric_robotiq_10ROBOTIQ_HAND_E_DEFEATURE_toothed_lock_washer_metric_robotiq_10ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/base_link_socket_head_cap_screw_iso_robotiq_24ROBOTIQ_HAND_E_DEFEATURE_socket_head_cap_screw_iso_robotiq_24ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/Group3ROBOTIQ_HAND_E_DEFEATURE_02_Group3ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/base_link_toothed_lock_washer_metric_robotiq_12ROBOTIQ_HAND_E_DEFEATURE_toothed_lock_washer_metric_robotiq_12ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/Group3ROBOTIQ_HAND_E_DEFEATURE_03_Group3ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/base_link_socket_head_cap_screw_iso_robotiq_7ROBOTIQ_HAND_E_DEFEATURE_socket_head_cap_screw_iso_robotiq_7ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/base_link_socket_head_cap_screw_iso_robotiq_25ROBOTIQ_HAND_E_DEFEATURE_socket_head_cap_screw_iso_robotiq_25ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/Group3ROBOTIQ_HAND_E_DEFEATURE_04_Group3ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/base_link_Group2ROBOTIQ_HAND_E_DEFEATURE_Group2ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/Group3ROBOTIQ_HAND_E_DEFEATURE_05_Group3ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/base_link_Group1ROBOTIQ_HAND_E_DEFEATURE_Group1ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/base_link_toothed_lock_washer_metric_robotiq_11ROBOTIQ_HAND_E_DEFEATURE_toothed_lock_washer_metric_robotiq_11ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/base_link_Group3ROBOTIQ_HAND_E_DEFEATURE_Group3ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/base_link_socket_head_cap_screw_iso_robotiq_6ROBOTIQ_HAND_E_DEFEATURE_socket_head_cap_screw_iso_robotiq_6ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/base_link_toothed_lock_washer_metric_robotiq_13ROBOTIQ_HAND_E_DEFEATURE_toothed_lock_washer_metric_robotiq_13ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/Group3ROBOTIQ_HAND_E_DEFEATURE_01_Group3ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/base_link_toothed_lock_washer_metric_robotiq_10ROBOTIQ_HAND_E_DEFEATURE_toothed_lock_washer_metric_robotiq_10ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/base_link_socket_head_cap_screw_iso_robotiq_24ROBOTIQ_HAND_E_DEFEATURE_socket_head_cap_screw_iso_robotiq_24ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/Group3ROBOTIQ_HAND_E_DEFEATURE_02_Group3ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/base_link_toothed_lock_washer_metric_robotiq_12ROBOTIQ_HAND_E_DEFEATURE_toothed_lock_washer_metric_robotiq_12ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/Group3ROBOTIQ_HAND_E_DEFEATURE_03_Group3ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/base_link_socket_head_cap_screw_iso_robotiq_7ROBOTIQ_HAND_E_DEFEATURE_socket_head_cap_screw_iso_robotiq_7ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/base_link_socket_head_cap_screw_iso_robotiq_25ROBOTIQ_HAND_E_DEFEATURE_socket_head_cap_screw_iso_robotiq_25ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/Group3ROBOTIQ_HAND_E_DEFEATURE_04_Group3ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/base_link_Group2ROBOTIQ_HAND_E_DEFEATURE_Group2ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/Group3ROBOTIQ_HAND_E_DEFEATURE_05_Group3ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/base_link_Group1ROBOTIQ_HAND_E_DEFEATURE_Group1ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_gripper">
+    <inertial>
+      <origin xyz="-0.0040011 -0.0225417 -0.0133555" rpy="0. 0. 0."/>
+      <mass value="0.0362128"/>
+      <inertia ixx="0.0000042" ixy="0." ixz="0." iyy="0.0000151" iyz="-0." izz="0.0000171"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.01125 -0.0019 -0.0357759" rpy="-3.1415927 0. 0. "/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/left_gripper_D_A03_ASM_DOIGTS_PARALLELES_1ROBOTIQ_HAND_E_DEFEATURE_D_A03_ASM_DOIGTS_PARALLELES_1ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.01125 -0.0019 -0.0357759" rpy="-3.1415927 0. 0. "/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/left_gripper_D_A03_ASM_DOIGTS_PARALLELES_1ROBOTIQ_HAND_E_DEFEATURE_01_D_A03_ASM_DOIGTS_PARALLELES_1ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.01125 -0.0019 -0.0357759" rpy="-3.1415927 0. 0. "/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/left_gripper_D_A03_ASM_DOIGTS_PARALLELES_1ROBOTIQ_HAND_E_DEFEATURE_02_D_A03_ASM_DOIGTS_PARALLELES_1ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.01125 -0.0019 -0.0357759" rpy="-3.1415927 0. 0. "/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/left_gripper_D_A03_ASM_DOIGTS_PARALLELES_1ROBOTIQ_HAND_E_DEFEATURE_D_A03_ASM_DOIGTS_PARALLELES_1ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.01125 -0.0019 -0.0357759" rpy="-3.1415927 0. 0. "/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/left_gripper_D_A03_ASM_DOIGTS_PARALLELES_1ROBOTIQ_HAND_E_DEFEATURE_01_D_A03_ASM_DOIGTS_PARALLELES_1ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.01125 -0.0019 -0.0357759" rpy="-3.1415927 0. 0. "/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/left_gripper_D_A03_ASM_DOIGTS_PARALLELES_1ROBOTIQ_HAND_E_DEFEATURE_02_D_A03_ASM_DOIGTS_PARALLELES_1ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_gripper">
+    <inertial>
+      <origin xyz="0.0040011 0.0225417 -0.0133555" rpy="0. 0. 0."/>
+      <mass value="0.0362128"/>
+      <inertia ixx="0.0000042" ixy="0." ixz="0." iyy="0.0000151" iyz="0." izz="0.0000171"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.01125 0.0019 -0.0357759" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/right_gripper_D_A03_ASM_DOIGTS_PARALLELES_1ROBOTIQ_HAND_E_DEFEATURE_D_A03_ASM_DOIGTS_PARALLELES_1ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.01125 0.0019 -0.0357759" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/right_gripper_D_A03_ASM_DOIGTS_PARALLELES_1ROBOTIQ_HAND_E_DEFEATURE_01_D_A03_ASM_DOIGTS_PARALLELES_1ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.01125 0.0019 -0.0357759" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/right_gripper_D_A03_ASM_DOIGTS_PARALLELES_1ROBOTIQ_HAND_E_DEFEATURE_02_D_A03_ASM_DOIGTS_PARALLELES_1ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.01125 0.0019 -0.0357759" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/right_gripper_D_A03_ASM_DOIGTS_PARALLELES_1ROBOTIQ_HAND_E_DEFEATURE_D_A03_ASM_DOIGTS_PARALLELES_1ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.01125 0.0019 -0.0357759" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/right_gripper_D_A03_ASM_DOIGTS_PARALLELES_1ROBOTIQ_HAND_E_DEFEATURE_01_D_A03_ASM_DOIGTS_PARALLELES_1ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.01125 0.0019 -0.0357759" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/mads/SpaceAlign/src/vispa/urdf/meshes/right_gripper_D_A03_ASM_DOIGTS_PARALLELES_1ROBOTIQ_HAND_E_DEFEATURE_02_D_A03_ASM_DOIGTS_PARALLELES_1ROBOTIQ_HAND_E_DEFEATURE.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+</robot>

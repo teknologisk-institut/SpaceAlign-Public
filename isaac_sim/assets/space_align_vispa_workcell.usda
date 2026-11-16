@@ -1,0 +1,594 @@
+#usda 1.0
+(
+    customLayerData = {
+        dictionary cameraSettings = {
+            dictionary Front = {
+                double3 position = (5, 0, 0)
+                double radius = 5
+            }
+            dictionary Perspective = {
+                double3 position = (4.597911191176423, 0.02232152072098469, 3.7355206684719393)
+                double3 target = (0.9573622647455151, -0.0661088977300675, 0.34674685944527806)
+            }
+            dictionary Right = {
+                double3 position = (0, -5, 0)
+                double radius = 5
+            }
+            dictionary Top = {
+                double3 position = (0, 0, 5)
+                double radius = 5
+            }
+            string boundCamera = "/OmniverseKit_Persp"
+        }
+        dictionary omni_layer = {
+            string authoring_layer = "./space_align_vispa_workcell.usda"
+            dictionary locked = {
+            }
+            dictionary muteness = {
+            }
+        }
+        dictionary renderSettings = {
+        }
+    }
+    defaultPrim = "World"
+    endTimeCode = 1000000
+    metersPerUnit = 1
+    startTimeCode = 0
+    timeCodesPerSecond = 60
+    upAxis = "Z"
+)
+
+def PhysicsScene "physicsScene" (
+    prepend apiSchemas = ["PhysxSceneAPI"]
+)
+{
+    vector3f physics:gravityDirection = (0, 0, 1)
+    float physics:gravityMagnitude = 0
+    uniform token physxScene:broadphaseType = "MBP"
+    bool physxScene:enableCCD = 1
+    bool physxScene:enableGPUDynamics = 0
+    bool physxScene:enableStabilization = 0
+    uniform token physxScene:solverType = "TGS"
+    uint physxScene:timeStepsPerSecond = 60
+}
+
+def Xform "World" (
+)
+{
+    def SphereLight "SphereLight1" (
+        apiSchemas = ["ShapingAPI"]
+    )
+    {
+        float inputs:intensity = 100000
+        float inputs:radius = 0.25
+        float inputs:shaping:cone:angle = 180
+        float intensity = 100000
+        float radius = 0.25
+        float shaping:cone:angle = 180
+        float shaping:cone:softness
+        float shaping:focus
+        color3f shaping:focusTint
+        asset shaping:ies:file
+        token ui:displayGroup = "Material Graphs"
+        token ui:displayName = "SphereLight"
+        int ui:order = 1024
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, -0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (-2.0, 0, 1.0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+	
+    def SphereLight "SphereLight2" (
+        apiSchemas = ["ShapingAPI"]
+    )
+    {
+        float inputs:intensity = 100000
+        float inputs:radius = 0.25
+        float inputs:shaping:cone:angle = 180
+        float intensity = 100000
+        float radius = 0.25
+        float shaping:cone:angle = 180
+        float shaping:cone:softness
+        float shaping:focus
+        color3f shaping:focusTint
+        asset shaping:ies:file
+        token ui:displayGroup = "Material Graphs"
+        token ui:displayName = "SphereLight"
+        int ui:order = 1024
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, -0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (2.0, 0, 1.0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+	
+    def SphereLight "SphereLight3" (
+        apiSchemas = ["ShapingAPI"]
+    )
+    {
+        float inputs:intensity = 100000
+        float inputs:radius = 0.25
+        float inputs:shaping:cone:angle = 180
+        float intensity = 100000
+        float radius = 0.25
+        float shaping:cone:angle = 180
+        float shaping:cone:softness
+        float shaping:focus
+        color3f shaping:focusTint
+        asset shaping:ies:file
+        token ui:displayGroup = "Material Graphs"
+        token ui:displayName = "SphereLight"
+        int ui:order = 1024
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, -0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0.0, 0, -2.0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+	
+    def Xform "Platform" (
+		prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysxRigidBodyAPI", "PhysicsMassAPI"]
+	)
+    {
+        token ui:displayGroup = "Material Graphs"
+        token ui:displayName = "Platform"
+        int ui:order = 1024
+        float3 xformOp:rotateXYZ = (0, -0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+
+
+        def Cube "Cube" (
+			prepend apiSchemas = ["MaterialBindingAPI", "PhysxTriangleMeshCollisionAPI", "PhysxConvexDecompositionCollisionAPI", "PhysxTriangleMeshSimplificationCollisionAPI", "PhysxSDFMeshCollisionAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxConvexHullCollisionAPI", "PhysicsMeshCollisionAPI"]
+		)
+        {
+			uniform token physics:approximation = "sdf"
+            float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+            double size = 1
+            quatd xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:scale = (0.2, 0.4, 0.03)
+            double3 xformOp:translate = (-1.0, -0.8, -0.475)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+		
+        def "Truss_Structure" (
+			prepend payload = @./Truss_Structure.usd@
+		)
+        {
+			quatf xformOp:orient = (1, 0, 0, 0)
+			float3 xformOp:scale = (0.5, 0.5, 0.5)
+			double3 xformOp:translate = (0.05, 0.25, -0.46)
+			uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+		}
+		
+        def "vispa_pedestal" (
+			prepend payload = @./vispa_pedestal.usd@
+		)
+        {
+			quatf xformOp:orient = (1, 0, 0, 0)
+			float3 xformOp:scale = (0.001, 0.001, 0.001)
+			double3 xformOp:translate = (0, 0, -0.46)
+			uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+		}
+
+    }
+	
+    def "VISPA" (
+        prepend payload = @./vispa.usda@
+    )
+    {
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "joint_link_0"
+        {
+        }
+
+        over "joint_link_1"
+        {
+            over "joint_J1"
+            {
+				float drive:angular:physics:targetPosition = 0.0
+                float state:angular:physics:position = 0.0
+                float state:angular:physics:velocity = 0
+            }
+        }
+
+        over "joint_link_2"
+        {
+            over "joint_J2"
+            {
+                float drive:angular:physics:targetPosition = 0.0
+                float state:angular:physics:position = 0.0
+                float state:angular:physics:velocity = 0
+            }
+        }
+
+        over "joint_link_3"
+        {
+            over "joint_J3"
+            {
+                float drive:angular:physics:targetPosition = 0.0
+                float state:angular:physics:position = 0.0
+                float state:angular:physics:velocity = 0
+            }
+        }
+
+        over "joint_link_4"
+        {
+            over "joint_J4"
+            {
+                float drive:angular:physics:targetPosition = 0.0
+                float state:angular:physics:position = 0.0
+                float state:angular:physics:velocity = 0
+            }
+        }
+
+        over "joint_link_5"
+        {
+            over "joint_J5"
+            {
+                float drive:angular:physics:targetPosition = 0.0
+                float state:angular:physics:position = 0.0
+                float state:angular:physics:velocity = 0
+            }
+        }
+
+        over "joint_link_6"
+        {
+            over "joint_J6"
+            {
+                float drive:angular:physics:targetPosition = 0.0
+                float state:angular:physics:position = 0.0
+                float state:angular:physics:velocity = 0
+            }
+        }
+    }
+
+    def PhysicsFixedJoint "Robot2PlatformJoint"
+    {
+        rel physics:body0 = </World/Platform>
+        rel physics:body1 = </World/VISPA/joint_link_0>
+        float physics:breakForce = inf
+        float physics:breakTorque = inf
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+    }
+	
+    def "AttachTool" (
+        prepend payload = @./attach_tool.usda@
+    )
+    {
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 1.955)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def PhysicsFixedJoint "FixedJoint"
+    {
+        rel physics:body0 = </World/VISPA/joint_link_6>
+        rel physics:body1 = </World/AttachTool/base>
+        float physics:breakForce = inf
+        float physics:breakTorque = inf
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (0.7071068, 0, 0.7071068, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+    }
+	
+	def Xform "Winch" (
+        references = @./winch.usda@
+	)
+	{
+        float3 xformOp:rotateXYZ = (0, -0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (-1, -0.8, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+	}
+}
+
+def OmniGraph "ActionGraph"
+{
+	token evaluationMode = "Automatic"
+	token evaluator:type = "execution"
+	token fabricCacheBacking = "StageWithoutHistory"
+	int2 fileFormatVersion = (1, 9)
+	token pipelineStage = "pipelineStageSimulation"
+	token ui:displayGroup = "Material Graphs"
+	token ui:displayName = "ActionGraph"
+	int ui:order = 1024
+	uniform token[] xformOpOrder = []
+
+	def OmniGraphNode "OnPlaybackTick"
+	{
+		token node:type = "omni.graph.action.OnPlaybackTick"
+		int node:typeVersion = 2
+		custom double outputs:deltaSeconds
+		custom double outputs:frame
+		custom uint outputs:tick (
+			customData = {
+				bool isExecution = 1
+			}
+		)
+		custom double outputs:time
+	}
+
+	def OmniGraphNode "PublishJointState"
+	{
+		custom uint64 inputs:context
+		uint64 inputs:context.connect = </ActionGraph/ros2_context.outputs:context>
+		custom uint inputs:execIn (
+			customData = {
+				bool isExecution = 1
+			}
+		)
+		uint inputs:execIn.connect = </ActionGraph/OnPlaybackTick.outputs:tick>
+		custom string inputs:nodeNamespace
+		custom string inputs:qosProfile
+		custom uint64 inputs:queueSize
+		custom rel inputs:targetPrim = </World/VISPA> (
+			customData = {
+				dictionary omni = {
+					dictionary graph = {
+						string relType = "target"
+					}
+				}
+			}
+		)
+		custom double inputs:timeStamp
+		double inputs:timeStamp.connect = </ActionGraph/ReadSimTime.outputs:simulationTime>
+		custom string inputs:topicName = "robot_joint_states"
+		token node:type = "isaacsim.ros2.bridge.ROS2PublishJointState"
+		int node:typeVersion = 1
+	}
+
+	def OmniGraphNode "SubscribeJointState"
+	{
+		custom uint64 inputs:context
+		uint64 inputs:context.connect = </ActionGraph/ros2_context.outputs:context>
+		custom uint inputs:execIn (
+			customData = {
+				bool isExecution = 1
+			}
+		)
+		uint inputs:execIn.connect = </ActionGraph/OnPlaybackTick.outputs:tick>
+		custom string inputs:nodeNamespace
+		custom string inputs:qosProfile
+		custom uint64 inputs:queueSize
+		custom string inputs:topicName = "robot_joint_commands"
+		token node:type = "isaacsim.ros2.bridge.ROS2SubscribeJointState"
+		int node:typeVersion = 2
+		custom double[] outputs:effortCommand
+		custom uint outputs:execOut (
+			customData = {
+				bool isExecution = 1
+			}
+		)
+		custom token[] outputs:jointNames
+		custom double[] outputs:positionCommand
+		custom double outputs:timeStamp
+		custom double[] outputs:velocityCommand
+	}
+
+	def OmniGraphNode "ArticulationController"
+	{
+		custom double[] inputs:effortCommand
+		double[] inputs:effortCommand.connect = </ActionGraph/SubscribeJointState.outputs:effortCommand>
+		custom uint inputs:execIn (
+			customData = {
+				bool isExecution = 1
+			}
+		)
+		uint inputs:execIn.connect = </ActionGraph/OnPlaybackTick.outputs:tick>
+		custom int[] inputs:jointIndices
+		custom token[] inputs:jointNames
+		token[] inputs:jointNames.connect = </ActionGraph/SubscribeJointState.outputs:jointNames>
+		custom double[] inputs:positionCommand
+		double[] inputs:positionCommand.connect = </ActionGraph/SubscribeJointState.outputs:positionCommand>
+		custom string inputs:robotPath = "/World/VISPA"
+		custom rel inputs:targetPrim (
+			customData = {
+				dictionary omni = {
+					dictionary graph = {
+						string relType = "target"
+					}
+				}
+			}
+		)
+		custom double[] inputs:velocityCommand
+		double[] inputs:velocityCommand.connect = </ActionGraph/SubscribeJointState.outputs:velocityCommand>
+		token node:type = "isaacsim.core.nodes.IsaacArticulationController"
+		int node:typeVersion = 1
+	}
+
+	def OmniGraphNode "ReadSimTime"
+	{
+		custom uint64 inputs:referenceTimeDenominator
+		custom int64 inputs:referenceTimeNumerator
+		custom bool inputs:resetOnStop
+		token node:type = "isaacsim.core.nodes.IsaacReadSimulationTime"
+		int node:typeVersion = 1
+		custom double outputs:simulationTime
+	}
+
+	def OmniGraphNode "ros2_context"
+	{
+		custom uchar inputs:domain_id = 0
+		custom bool inputs:useDomainIDEnvVar = 1
+		token node:type = "isaacsim.ros2.bridge.ROS2Context"
+		int node:typeVersion = 2
+		custom uint64 outputs:context
+	}
+	
+    def OmniGraphNode "ros2_publish_clock" (
+        prepend apiSchemas = ["NodeGraphNodeAPI"]
+    )
+    {
+        custom uint64 inputs:context
+        custom uint inputs:execIn (
+            customData = {
+                bool isExecution = 1
+            }
+        )
+        prepend uint inputs:execIn.connect = </ActionGraph/OnPlaybackTick.outputs:tick>
+        custom string inputs:nodeNamespace
+        custom string inputs:qosProfile
+        custom uint64 inputs:queueSize
+        custom double inputs:timeStamp
+        prepend double inputs:timeStamp.connect = </ActionGraph/ReadSimTime.outputs:simulationTime>
+        custom string inputs:topicName
+        token node:type = "isaacsim.ros2.bridge.ROS2PublishClock"
+        int node:typeVersion = 1
+    }
+
+    def OmniGraphNode "tool_ft_publisher" (
+        prepend apiSchemas = ["NodeGraphNodeAPI"]
+    )
+    {
+        custom uint64 inputs:context
+        custom uint inputs:execIn (
+            customData = {
+                bool isExecution = 1
+            }
+        )
+        prepend uint inputs:execIn.connect = </ActionGraph/script_node.outputs:execOut>
+        custom token inputs:header:frame_id
+        custom uint inputs:header:stamp:nanosec
+        prepend uint inputs:header:stamp:nanosec.connect = </ActionGraph/isaac_time_splitter.outputs:nanoseconds>
+        custom int inputs:header:stamp:sec
+        prepend int inputs:header:stamp:sec.connect = </ActionGraph/isaac_time_splitter.outputs:seconds>
+        custom string inputs:messageName = "WrenchStamped"
+        custom string inputs:messagePackage = "geometry_msgs"
+        custom string inputs:messageSubfolder
+        custom string inputs:nodeNamespace
+        custom string inputs:qosProfile
+        custom uint64 inputs:queueSize
+        custom string inputs:topicName = "vispa/tool_ft"
+        custom double inputs:wrench:force:x
+        custom double inputs:wrench:force:y
+        custom double inputs:wrench:force:z
+        custom double inputs:wrench:torque:x
+        custom double inputs:wrench:torque:y
+        custom double inputs:wrench:torque:z
+        token node:type = "isaacsim.ros2.bridge.ROS2Publisher"
+        int node:typeVersion = 1
+        custom uint outputs:execOut (
+            customData = {
+                bool isExecution = 1
+            }
+        )
+    }
+
+    def OmniGraphNode "tool_tcp_publisher" (
+        prepend apiSchemas = ["NodeGraphNodeAPI"]
+    )
+    {
+        custom uint64 inputs:context
+        uint64 inputs:context.connect = </ActionGraph/ros2_context.outputs:context>
+        custom uint inputs:execIn (
+            customData = {
+                bool isExecution = 1
+            }
+        )
+        prepend uint inputs:execIn.connect = </ActionGraph/script_node.outputs:execOut>
+        custom token inputs:header:frame_id = "world"
+        custom uint inputs:header:stamp:nanosec
+        prepend uint inputs:header:stamp:nanosec.connect = </ActionGraph/isaac_time_splitter.outputs:nanoseconds>
+        custom int inputs:header:stamp:sec
+        prepend int inputs:header:stamp:sec.connect = </ActionGraph/isaac_time_splitter.outputs:seconds>
+        custom string inputs:messageName = "PoseStamped"
+        custom string inputs:messagePackage = "geometry_msgs"
+        custom string inputs:messageSubfolder = "msg"
+        custom string inputs:nodeNamespace
+        custom string inputs:qosProfile
+        custom uint64 inputs:queueSize
+        custom string inputs:topicName = "/vispa/tool_tcp"
+        custom double inputs:pose:position:x
+        custom double inputs:pose:position:y
+        custom double inputs:pose:position:z
+        custom double inputs:pose:orientation:x
+        custom double inputs:pose:orientation:y
+        custom double inputs:pose:orientation:z
+        custom double inputs:pose:orientation:w = 1
+        token node:type = "isaacsim.ros2.bridge.ROS2Publisher"
+        int node:typeVersion = 1
+        custom uint outputs:execOut (
+            customData = {
+                bool isExecution = 1
+            }
+        )
+    }
+
+    def OmniGraphNode "script_node" (
+        prepend apiSchemas = ["NodeGraphNodeAPI"]
+    )
+    {
+        custom uint inputs:execIn (
+            customData = {
+                bool isExecution = 1
+            }
+        )
+        prepend uint inputs:execIn.connect = </ActionGraph/OnPlaybackTick.outputs:tick>
+        custom string inputs:script = '''import numpy as np
+from isaacsim.core.api.robots import Robot
+from isaacsim.core.prims import SingleXFormPrim
+
+def setup(db: og.Database):
+    db.per_instance_state.tool_tcp = SingleXFormPrim(prim_path="/World/AttachTool/base", name="tool_tcp")
+
+def cleanup(db: og.Database):
+    pass
+
+def compute(db: og.Database):
+    robot = Robot(prim_path="/World/VISPA", name="VISPA")
+    joint_indices = 1 + np.array([robot._articulation_view._metadata.joint_indices["FixedJoint"]])
+    force = robot.get_measured_joint_forces(joint_indices)[0]
+    og.Controller.attribute("/ActionGraph/tool_ft_publisher.inputs:wrench:force:x").set(force[0])
+    og.Controller.attribute("/ActionGraph/tool_ft_publisher.inputs:wrench:force:y").set(force[1])
+    og.Controller.attribute("/ActionGraph/tool_ft_publisher.inputs:wrench:force:z").set(force[2])
+    og.Controller.attribute("/ActionGraph/tool_ft_publisher.inputs:wrench:torque:x").set(force[3])
+    og.Controller.attribute("/ActionGraph/tool_ft_publisher.inputs:wrench:torque:y").set(force[4])
+    og.Controller.attribute("/ActionGraph/tool_ft_publisher.inputs:wrench:torque:z").set(force[5])
+    position, orientation = db.per_instance_state.tool_tcp.get_world_pose()
+    og.Controller.attribute("/ActionGraph/tool_tcp_publisher.inputs:pose:position:x").set(float(position[0]))
+    og.Controller.attribute("/ActionGraph/tool_tcp_publisher.inputs:pose:position:y").set(float(position[1]))
+    og.Controller.attribute("/ActionGraph/tool_tcp_publisher.inputs:pose:position:z").set(float(position[2]))
+    og.Controller.attribute("/ActionGraph/tool_tcp_publisher.inputs:pose:orientation:x").set(float(orientation[1]))
+    og.Controller.attribute("/ActionGraph/tool_tcp_publisher.inputs:pose:orientation:y").set(float(orientation[2]))
+    og.Controller.attribute("/ActionGraph/tool_tcp_publisher.inputs:pose:orientation:z").set(float(orientation[3]))
+    og.Controller.attribute("/ActionGraph/tool_tcp_publisher.inputs:pose:orientation:w").set(float(orientation[0]))
+    return True
+'''
+        custom token inputs:scriptPath
+        custom bool inputs:usePath
+        token node:type = "omni.graph.scriptnode.ScriptNode"
+        int node:typeVersion = 2
+        custom uint outputs:execOut (
+            customData = {
+                bool isExecution = 1
+            }
+        )
+        custom bool state:omni_initialized
+    }
+
+    def OmniGraphNode "isaac_time_splitter" (
+        prepend apiSchemas = ["NodeGraphNodeAPI"]
+    )
+    {
+        custom token inputs:time
+        prepend token inputs:time.connect = </ActionGraph/ReadSimTime.outputs:simulationTime>
+        token node:type = "isaacsim.core.nodes.IsaacTimeSplitter"
+        int node:typeVersion = 1
+        custom uint outputs:microseconds
+        custom uint outputs:milliseconds
+        custom uint outputs:nanoseconds
+        custom int outputs:seconds
+    }
+}

@@ -1,0 +1,9 @@
+# Default initial positions for VISPA's ros2_control fake system
+
+initial_positions:
+  joint_J1: 0
+  joint_J2: 0
+  joint_J3: 0
+  joint_J4: 0
+  joint_J5: 0
+  joint_J6: 0

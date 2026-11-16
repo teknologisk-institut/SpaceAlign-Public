@@ -1,0 +1,11 @@
+<map id="include/Error.hpp" name="include/Error.hpp">
+<area shape="rect" id="Node000001" title="Analysis failure identifiers and their text labels." alt="" coords="94,5,225,31"/>
+<area shape="rect" id="Node000002" href="$ConstraintRelaxation_8hpp.html" title="Constraint relaxation requests and their execution scope." alt="" coords="40,79,279,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,44,162,79,157,79,157,44"/>
+<area shape="rect" id="Node000003" href="$MAL_8hpp.html" title="Real&#45;time measurement analysis loop and host integration API." alt="" coords="5,159,135,185"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="138,115,85,161,81,157,134,111"/>
+<area shape="rect" id="Node000004" href="$RecoveryStrategy_8hpp.html" title="Recovery strategy identifiers and external recovery actions." alt="" coords="159,152,341,192"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="185,111,230,150,226,154,181,115"/>
+<area shape="rect" id="Node000005" href="$APLE_8hpp.html" title="Offline recovery planning and action&#45;sequence evaluation." alt="" coords="160,240,340,265"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="253,206,253,240,247,240,247,206"/>
+</map>

@@ -1,0 +1,5 @@
+geometry_msgs/Pose[] target_poses
+float64 vel     # Fraction of max velocity (0.0 -> 1.0)
+float64 acc     # Fraction of acc velocity (0.0 -> 1.0)
+---
+bool ok

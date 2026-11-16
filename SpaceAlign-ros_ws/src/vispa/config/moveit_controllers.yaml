@@ -1,0 +1,25 @@
+# MoveIt uses this configuration for controller management
+trajectory_execution:
+  allowed_execution_duration_scaling: 1.2
+  allowed_goal_duration_margin: 0.5
+  allowed_start_tolerance: 0.01
+  trajectory_duration_monitoring: true
+  use_sim_time: true
+
+moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
+
+moveit_simple_controller_manager:
+  controller_names:
+    - vispa_controller
+
+  vispa_controller:
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - joint_J1
+      - joint_J2
+      - joint_J3
+      - joint_J4
+      - joint_J5
+      - joint_J6

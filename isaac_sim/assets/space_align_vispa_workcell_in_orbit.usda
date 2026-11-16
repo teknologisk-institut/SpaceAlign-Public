@@ -1,0 +1,793 @@
+#usda 1.0
+(
+    customLayerData = {
+        dictionary cameraSettings = {
+            dictionary Front = {
+                double3 position = (5, 0, 0)
+                double radius = 5
+            }
+            dictionary Perspective = {
+                double3 position = (5.656622483970874, 4.337689014475291, 2.6111454244132544)
+                double3 target = (0.659315340215489, -0.04052734394272672, 0.34203780042267473)
+            }
+            dictionary Right = {
+                double3 position = (0, -5, 0)
+                double radius = 5
+            }
+            dictionary Top = {
+                double3 position = (0, 0, 5)
+                double radius = 5
+            }
+            string boundCamera = "/OmniverseKit_Persp"
+        }
+        dictionary omni_layer = {
+            string authoring_layer = "./space_align_vispa_workcell.usda"
+            dictionary locked = {
+            }
+            dictionary muteness = {
+            }
+        }
+        dictionary renderSettings = {
+        }
+    }
+    defaultPrim = "World"
+    endTimeCode = 1000000
+    metersPerUnit = 1
+    startTimeCode = 0
+    timeCodesPerSecond = 60
+    upAxis = "Z"
+)
+
+def PhysicsScene "physicsScene" (
+    prepend apiSchemas = ["PhysxSceneAPI", "NewtonSceneAPI"]
+)
+{
+    vector3f physics:gravityDirection = (0, 0, 1)
+    float physics:gravityMagnitude = 0
+    uniform token physxScene:broadphaseType = "MBP"
+    bool physxScene:enableCCD = 1
+    bool physxScene:enableGPUDynamics = 0
+    bool physxScene:enableStabilization = 0
+    uniform token physxScene:solverType = "TGS"
+    uint physxScene:timeStepsPerSecond = 60
+}
+
+def Xform "World"
+{
+    def SphereLight "SphereLight1" (
+        apiSchemas = ["ShapingAPI"]
+    )
+    {
+        float inputs:intensity = 100000
+        float inputs:radius = 0.25
+        float inputs:shaping:cone:angle = 180
+        float intensity = 100000
+        float radius = 0.25
+        float shaping:cone:angle = 180
+        float shaping:cone:softness
+        float shaping:focus
+        color3f shaping:focusTint
+        asset shaping:ies:file
+        token ui:displayGroup = "Material Graphs"
+        token ui:displayName = "SphereLight"
+        int ui:order = 1024
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, -0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (-2, 0, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def SphereLight "SphereLight2" (
+        apiSchemas = ["ShapingAPI"]
+    )
+    {
+        float inputs:intensity = 100000
+        float inputs:radius = 0.25
+        float inputs:shaping:cone:angle = 180
+        float intensity = 100000
+        float radius = 0.25
+        float shaping:cone:angle = 180
+        float shaping:cone:softness
+        float shaping:focus
+        color3f shaping:focusTint
+        asset shaping:ies:file
+        token ui:displayGroup = "Material Graphs"
+        token ui:displayName = "SphereLight"
+        int ui:order = 1024
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, -0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (2, 0, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def SphereLight "SphereLight3" (
+        apiSchemas = ["ShapingAPI"]
+    )
+    {
+        float inputs:intensity = 100000
+        float inputs:radius = 0.25
+        float inputs:shaping:cone:angle = 180
+        float intensity = 100000
+        float radius = 0.25
+        float shaping:cone:angle = 180
+        float shaping:cone:softness
+        float shaping:focus
+        color3f shaping:focusTint
+        asset shaping:ies:file
+        token ui:displayGroup = "Material Graphs"
+        token ui:displayName = "SphereLight"
+        int ui:order = 1024
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, -0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, -2)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Platform" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysxRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        token ui:displayGroup = "Material Graphs"
+        token ui:displayName = "Platform"
+        int ui:order = 1024
+        float3 xformOp:rotateXYZ = (0, -0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+
+        def Cube "Cube" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysxTriangleMeshCollisionAPI", "PhysxConvexDecompositionCollisionAPI", "PhysxTriangleMeshSimplificationCollisionAPI", "PhysxSDFMeshCollisionAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxConvexHullCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+            uniform token physics:approximation = "sdf"
+            double size = 1
+            quatd xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:scale = (0.2, 0.4, 0.03)
+            double3 xformOp:translate = (-1, -0.8, -0.475)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "Truss_Structure" (
+            prepend payload = @./Truss_Structure.usd@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.5, 0.5, 0.5)
+            double3 xformOp:translate = (0.05, 0.25, -0.46)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "vispa_pedestal" (
+            prepend payload = @./vispa_pedestal.usd@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, -0.46)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def "VISPA" (
+        prepend payload = @./vispa.usda@
+    )
+    {
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "joint_link_0"
+        {
+        }
+
+        over "joint_link_1"
+        {
+            over "joint_J1"
+            {
+                float drive:angular:physics:targetPosition = 0
+                float state:angular:physics:position = 0
+                float state:angular:physics:velocity = 0
+            }
+        }
+
+        over "joint_link_2"
+        {
+            over "joint_J2"
+            {
+                float drive:angular:physics:targetPosition = 0
+                float state:angular:physics:position = 0
+                float state:angular:physics:velocity = 0
+            }
+        }
+
+        over "joint_link_3"
+        {
+            over "joint_J3"
+            {
+                float drive:angular:physics:targetPosition = 0
+                float state:angular:physics:position = 0
+                float state:angular:physics:velocity = 0
+            }
+        }
+
+        over "joint_link_4"
+        {
+            over "joint_J4"
+            {
+                float drive:angular:physics:targetPosition = 0
+                float state:angular:physics:position = 0
+                float state:angular:physics:velocity = 0
+            }
+        }
+
+        over "joint_link_5"
+        {
+            over "joint_J5"
+            {
+                float drive:angular:physics:targetPosition = 0
+                float state:angular:physics:position = 0
+                float state:angular:physics:velocity = 0
+            }
+        }
+
+        over "joint_link_6"
+        {
+            over "joint_J6"
+            {
+                float drive:angular:physics:targetPosition = 0
+                float state:angular:physics:position = 0
+                float state:angular:physics:velocity = 0
+            }
+        }
+    }
+
+    def PhysicsFixedJoint "Robot2PlatformJoint"
+    {
+        rel physics:body0 = </World/Platform>
+        rel physics:body1 = </World/VISPA/joint_link_0>
+        float physics:breakForce = inf
+        float physics:breakTorque = inf
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+    }
+
+    def "AttachTool" (
+        prepend payload = @./attach_tool.usda@
+    )
+    {
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 1.955)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def PhysicsFixedJoint "FixedJoint"
+    {
+        rel physics:body0 = </World/VISPA/joint_link_6>
+        rel physics:body1 = </World/AttachTool/base>
+        float physics:breakForce = inf
+        float physics:breakTorque = inf
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (0.7071068, 0, 0.7071068, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+    }
+
+    def Xform "Winch" (
+        references = @./winch.usda@
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, -0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (-1, -0.8, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Mesh "Plane" (
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        float3[] extent = [(-0.5, -0.5, 0), (0.5, 0.5, 0)]
+        int[] faceVertexCounts = [4]
+        int[] faceVertexIndices = [0, 1, 3, 2]
+        rel material:binding = </World/Looks/OmniPBR> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        normal3f[] normals = [(0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1)] (
+            interpolation = "faceVarying"
+        )
+        point3f[] points = [(-0.5, -0.5, 0), (0.5, -0.5, 0), (-0.5, 0.5, 0), (0.5, 0.5, 0)]
+        texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+            interpolation = "faceVarying"
+        )
+        uniform token subdivisionScheme = "none"
+        quatd xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:scale = (50, 50, 1)
+        double3 xformOp:translate = (0, 0, -5)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def Scope "Looks"
+    {
+        def Material "OmniPBR"
+        {
+            token outputs:mdl:displacement.connect = </World/Looks/OmniPBR/Shader.outputs:out>
+            token outputs:mdl:surface.connect = </World/Looks/OmniPBR/Shader.outputs:out>
+            token outputs:mdl:volume.connect = </World/Looks/OmniPBR/Shader.outputs:out>
+
+            def Shader "Shader"
+            {
+                uniform token info:implementationSource = "sourceAsset"
+                uniform asset info:mdl:sourceAsset = @OmniPBR.mdl@
+                uniform token info:mdl:sourceAsset:subIdentifier = "OmniPBR"
+                asset inputs:diffuse_texture = @./2026-10-30_14-16-38-690.jpg@ (
+                    colorSpace = "auto"
+                )
+                token outputs:out (
+                    renderType = "material"
+                )
+            }
+        }
+    }
+
+    def RectLight "RectLight" (
+        prepend apiSchemas = ["ShapingAPI"]
+    )
+    {
+        float3[] extent = [(-0.5, -0.5, -0), (0.5, 0.5, 0)]
+        float inputs:height = 1
+        float inputs:intensity = 15000
+        float inputs:shaping:cone:angle = 180
+        float inputs:shaping:cone:softness
+        float inputs:shaping:focus
+        color3f inputs:shaping:focusTint
+        asset inputs:shaping:ies:file
+        float inputs:width = 1
+        custom int omni:rtx:usdluxVersion = 2505
+        quatd xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:scale = (50, 50, 1)
+        double3 xformOp:translate = (0, 0, 200)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+}
+
+def OmniGraph "ActionGraph"
+{
+    token evaluationMode = "Automatic"
+    token evaluator:type = "execution"
+    token fabricCacheBacking = "StageWithoutHistory"
+    int2 fileFormatVersion = (1, 9)
+    token pipelineStage = "pipelineStageSimulation"
+    token ui:displayGroup = "Material Graphs"
+    token ui:displayName = "ActionGraph"
+    int ui:order = 1024
+    uniform token[] xformOpOrder = []
+
+    def OmniGraphNode "OnPlaybackTick"
+    {
+        token node:type = "omni.graph.action.OnPlaybackTick"
+        int node:typeVersion = 2
+        custom double outputs:deltaSeconds
+        custom double outputs:frame
+        custom uint outputs:tick (
+            customData = {
+                bool isExecution = 1
+            }
+        )
+        custom double outputs:time
+    }
+
+    def OmniGraphNode "PublishJointState"
+    {
+        custom uint64 inputs:context
+        uint64 inputs:context.connect = </ActionGraph/ros2_context.outputs:context>
+        custom uint inputs:execIn (
+            customData = {
+                bool isExecution = 1
+            }
+        )
+        uint inputs:execIn.connect = </ActionGraph/OnPlaybackTick.outputs:tick>
+        custom uchar[] inputs:jointDofTypes
+        custom double[] inputs:jointEfforts
+        custom token[] inputs:jointNames
+        custom double[] inputs:jointPositions
+        custom double[] inputs:jointVelocities
+        custom string inputs:nodeNamespace
+        custom string inputs:qosProfile
+        custom uint64 inputs:queueSize
+        custom float inputs:sensorTime
+        custom float inputs:stageMetersPerUnit
+        custom rel inputs:targetPrim = </World/VISPA> (
+            customData = {
+                dictionary omni = {
+                    dictionary graph = {
+                        string relType = "target"
+                    }
+                }
+            }
+        )
+        custom double inputs:timeStamp
+        double inputs:timeStamp.connect = </ActionGraph/ReadSimTime.outputs:simulationTime>
+        custom string inputs:topicName = "robot_joint_states"
+        token node:type = "isaacsim.ros2.bridge.ROS2PublishJointState"
+        int node:typeVersion = 1
+    }
+
+    def OmniGraphNode "SubscribeJointState"
+    {
+        custom uint64 inputs:context
+        uint64 inputs:context.connect = </ActionGraph/ros2_context.outputs:context>
+        custom uint inputs:execIn (
+            customData = {
+                bool isExecution = 1
+            }
+        )
+        uint inputs:execIn.connect = </ActionGraph/OnPlaybackTick.outputs:tick>
+        custom string inputs:nodeNamespace
+        custom string inputs:qosProfile
+        custom uint64 inputs:queueSize
+        custom string inputs:topicName = "robot_joint_commands"
+        token node:type = "isaacsim.ros2.bridge.ROS2SubscribeJointState"
+        int node:typeVersion = 2
+        custom double[] outputs:effortCommand
+        custom uint outputs:execOut (
+            customData = {
+                bool isExecution = 1
+            }
+        )
+        custom token[] outputs:jointNames
+        custom double[] outputs:positionCommand
+        custom double outputs:timeStamp
+        custom double[] outputs:velocityCommand
+    }
+
+    def OmniGraphNode "ArticulationController"
+    {
+        custom double[] inputs:effortCommand
+        double[] inputs:effortCommand.connect = </ActionGraph/SubscribeJointState.outputs:effortCommand>
+        custom uint inputs:execIn (
+            customData = {
+                bool isExecution = 1
+            }
+        )
+        uint inputs:execIn.connect = </ActionGraph/OnPlaybackTick.outputs:tick>
+        custom int[] inputs:jointIndices
+        custom token[] inputs:jointNames
+        token[] inputs:jointNames.connect = </ActionGraph/SubscribeJointState.outputs:jointNames>
+        custom double[] inputs:positionCommand
+        double[] inputs:positionCommand.connect = </ActionGraph/SubscribeJointState.outputs:positionCommand>
+        custom string inputs:robotPath = "/World/VISPA"
+        custom rel inputs:targetPrim (
+            customData = {
+                dictionary omni = {
+                    dictionary graph = {
+                        string relType = "target"
+                    }
+                }
+            }
+        )
+        custom double[] inputs:velocityCommand
+        double[] inputs:velocityCommand.connect = </ActionGraph/SubscribeJointState.outputs:velocityCommand>
+        token node:type = "isaacsim.core.nodes.IsaacArticulationController"
+        int node:typeVersion = 1
+    }
+
+    def OmniGraphNode "ReadSimTime"
+    {
+        custom uint64 inputs:referenceTimeDenominator
+        custom int64 inputs:referenceTimeNumerator
+        custom bool inputs:resetOnStop
+        token node:type = "isaacsim.core.nodes.IsaacReadSimulationTime"
+        int node:typeVersion = 1
+        custom double outputs:simulationTime
+    }
+
+    def OmniGraphNode "ros2_context"
+    {
+        custom uchar inputs:domain_id = 0
+        custom bool inputs:useDomainIDEnvVar = 1
+        token node:type = "isaacsim.ros2.bridge.ROS2Context"
+        int node:typeVersion = 2
+        custom uint64 outputs:context
+    }
+
+    def OmniGraphNode "ros2_publish_clock" (
+        prepend apiSchemas = ["NodeGraphNodeAPI"]
+    )
+    {
+        custom uint64 inputs:context
+        custom uint inputs:execIn (
+            customData = {
+                bool isExecution = 1
+            }
+        )
+        prepend uint inputs:execIn.connect = </ActionGraph/OnPlaybackTick.outputs:tick>
+        custom string inputs:nodeNamespace
+        custom string inputs:qosProfile
+        custom uint64 inputs:queueSize
+        custom double inputs:timeStamp
+        prepend double inputs:timeStamp.connect = </ActionGraph/ReadSimTime.outputs:simulationTime>
+        custom string inputs:topicName
+        token node:type = "isaacsim.ros2.bridge.ROS2PublishClock"
+        int node:typeVersion = 1
+    }
+
+    def OmniGraphNode "tool_ft_publisher" (
+        prepend apiSchemas = ["NodeGraphNodeAPI"]
+    )
+    {
+        custom uint64 inputs:context
+        custom uint inputs:execIn (
+            customData = {
+                bool isExecution = 1
+            }
+        )
+        prepend uint inputs:execIn.connect = </ActionGraph/OnPlaybackTick.outputs:tick>
+        custom token inputs:header:frame_id
+        custom uint inputs:header:stamp:nanosec
+        prepend uint inputs:header:stamp:nanosec.connect = </ActionGraph/isaac_time_splitter.outputs:nanoseconds>
+        custom int inputs:header:stamp:sec
+        prepend int inputs:header:stamp:sec.connect = </ActionGraph/isaac_time_splitter.outputs:seconds>
+        custom string inputs:messageName = "WrenchStamped"
+        custom string inputs:messagePackage = "geometry_msgs"
+        custom string inputs:messageSubfolder
+        custom string inputs:nodeNamespace
+        custom string inputs:qosProfile
+        custom uint64 inputs:queueSize
+        custom string inputs:topicName = "vispa/tool_ft"
+        custom double inputs:wrench:force:x
+        custom double inputs:wrench:force:y
+        custom double inputs:wrench:force:z
+        custom double inputs:wrench:torque:x
+        custom double inputs:wrench:torque:y
+        custom double inputs:wrench:torque:z
+        token node:type = "isaacsim.ros2.bridge.ROS2Publisher"
+        int node:typeVersion = 1
+        custom uint outputs:execOut (
+            customData = {
+                bool isExecution = 1
+            }
+        )
+    }
+
+    def OmniGraphNode "script_node" (
+        prepend apiSchemas = ["NodeGraphNodeAPI"]
+    )
+    {
+        custom uint inputs:execIn (
+            customData = {
+                bool isExecution = 1
+            }
+        )
+        prepend uint inputs:execIn.connect = </ActionGraph/OnPlaybackTick.outputs:tick>
+        custom string inputs:script = '''import numpy as np\r
+from isaacsim.core.api.robots import Robot\r
+\r
+def setup(db: og.Database):\r
+    pass\r
+\r
+def cleanup(db: og.Database):\r
+    pass\r
+\r
+def compute(db: og.Database):\r
+    robot = Robot(prim_path="/World/VISPA", name="VISPA")\r
+    joint_indices = 1 + np.array([robot._articulation_view._metadata.joint_indices["FixedJoint"]])\r
+    force = robot.get_measured_joint_forces(joint_indices)[0]\r
+    og.Controller.attribute("/ActionGraph/tool_ft_publisher.inputs:wrench:force:x").set(force[0])\r
+    og.Controller.attribute("/ActionGraph/tool_ft_publisher.inputs:wrench:force:y").set(force[1])\r
+    og.Controller.attribute("/ActionGraph/tool_ft_publisher.inputs:wrench:force:z").set(force[2])\r
+    og.Controller.attribute("/ActionGraph/tool_ft_publisher.inputs:wrench:torque:x").set(force[3])\r
+    og.Controller.attribute("/ActionGraph/tool_ft_publisher.inputs:wrench:torque:y").set(force[4])\r
+    og.Controller.attribute("/ActionGraph/tool_ft_publisher.inputs:wrench:torque:z").set(force[5])\r
+    return True\r
+'''
+        custom token inputs:scriptPath
+        custom bool inputs:usePath
+        token node:type = "omni.graph.scriptnode.ScriptNode"
+        int node:typeVersion = 2
+        custom uint outputs:execOut (
+            customData = {
+                bool isExecution = 1
+            }
+        )
+        custom bool state:omni_initialized
+    }
+
+    def OmniGraphNode "isaac_time_splitter" (
+        prepend apiSchemas = ["NodeGraphNodeAPI"]
+    )
+    {
+        custom token inputs:time
+        prepend token inputs:time.connect = </ActionGraph/ReadSimTime.outputs:simulationTime>
+        token node:type = "isaacsim.core.nodes.IsaacTimeSplitter"
+        int node:typeVersion = 1
+        custom uint outputs:microseconds
+        custom uint outputs:milliseconds
+        custom uint outputs:nanoseconds
+        custom int outputs:seconds
+    }
+}
+
+def "Render" (
+    hide_in_stage_window = true
+    no_delete = true
+)
+{
+    def "OmniverseKit"
+    {
+        def "HydraTextures" (
+            hide_in_stage_window = true
+            no_delete = true
+        )
+        {
+            def RenderProduct "omni_kit_widget_viewport_ViewportTexture_0" (
+                prepend apiSchemas = ["OmniRtxSettingsCommonAdvancedAPI_1", "OmniRtxSettingsRtAdvancedAPI_1", "OmniRtxSettingsPtAdvancedAPI_1", "OmniRtxPostColorGradingAPI_1", "OmniRtxPostChromaticAberrationAPI_1", "OmniRtxPostBloomPhysicalAPI_1", "OmniRtxPostMatteObjectAPI_1", "OmniRtxPostCompositingAPI_1", "OmniRtxPostDofAPI_1", "OmniRtxPostMotionBlurAPI_1", "OmniRtxPostTvNoiseAPI_1", "OmniRtxPostTonemapIrayReinhardAPI_1", "OmniRtxPostDebugSettingsAPI_1", "OmniRtxDebugSettingsAPI_1"]
+                hide_in_stage_window = true
+                no_delete = true
+            )
+            {
+                rel camera = </OmniverseKit_Persp>
+                token omni:rtx:ambientOcclusion:denoiserMode = "none"
+                token omni:rtx:background:source:texture:textureMode = "repeatMirrored"
+                token omni:rtx:background:source:type = "domeLight"
+                bool omni:rtx:debug:view:pixelDebug:enableFixedTextPos = 1
+                token omni:rtx:directLighting:sampledLighting:denoisingTechnique = "None"
+                bool omni:rtx:dlss:frameGeneration = 0
+                float3 omni:rtx:domeLight:rotationAxis = (0, 0, 1)
+                bool omni:rtx:indirectDiffuse:denoiser:enabled = 0
+                bool omni:rtx:material:db:syncLoads = 1
+                token omni:rtx:post:dlss:execMode = "performance"
+                bool omni:rtx:post:registeredCompositing:invertColorCorrection = 1
+                bool omni:rtx:post:registeredCompositing:invertToneMap = 1
+                bool omni:rtx:pt:adaptiveSampling:filterError = 0
+                uint omni:rtx:pt:adaptiveSampling:fixedSppIterations = 2
+                uint omni:rtx:pt:maxSamplesPerLaunch = 2073600
+                uint omni:rtx:pt:mgpu:maxPixelsPerRegionExponent = 12
+                bool omni:rtx:reflections:denoiser:enabled = 0
+                token omni:rtx:rendermode = "RealTimePathTracing"
+                color3f omni:rtx:rt:ambientLight:color = (0.1, 0.1, 0.1)
+                bool omni:rtx:rt:demoire = 0
+                bool omni:rtx:rt:lightcache:spatialCache:dontResolveConflicts = 1
+                int omni:rtx:rt:sss:samples = 1
+                uint omni:rtx:rtpt:maxVolumeBounces = 15
+                float omni:rtx:rtpt:modulatingRoughnessThreshold = 0.08
+                bool omni:rtx:scene:hydra:materialSyncLoads = 1
+                bool omni:rtx:scene:hydra:mdlMaterialWarmup = 1
+                rel orderedVars = </Render/Vars/LdrColor>
+                custom bool overrideClipRange = 0
+                uniform int2 resolution = (1280, 720)
+            }
+        }
+    }
+
+    def RenderSettings "OmniverseGlobalRenderSettings" (
+        prepend apiSchemas = ["OmniRtxSettingsGlobalRtAdvancedAPI_1", "OmniRtxSettingsGlobalPtAdvancedAPI_1"]
+        no_delete = true
+    )
+    {
+        rel products = </Render/OmniverseKit/HydraTextures/omni_kit_widget_viewport_ViewportTexture_0>
+    }
+
+    def "Vars"
+    {
+        def RenderVar "LdrColor" (
+            hide_in_stage_window = true
+            no_delete = true
+        )
+        {
+            uniform string sourceName = "LdrColor"
+            uniform token sourceType = "raw"
+        }
+    }
+}
+
+over "OmniverseKit_Persp" (
+    prepend apiSchemas = ["OmniRtxCameraAutoExposureAPI_1", "OmniRtxCameraExposureAPI_1"]
+    customData = {
+        dictionary omni = {
+            dictionary kit = {
+                bool hide_in_stage_window = 1
+                bool no_delete = 1
+            }
+        }
+    }
+    hide_in_stage_window = true
+    kind = "component"
+    no_delete = true
+)
+{
+    float2 clippingRange = (0.01, 10000000)
+    float exposure:fStop = 5
+    float exposure:responsivity = 1.1026709
+    float exposure:time = 0.02
+    float focalLength = 18.147562
+    float focusDistance = 400
+    custom uniform vector3d omni:kit:centerOfInterest = (1.958651828664846e-17, 1.566921462931877e-16, -7.0207340484738365)
+    float3 xformOp:rotateXYZ = (71.14339, -1.9719439e-13, 131.22209)
+    float3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (5.656622483970874, 4.337689014475291, 2.6111454244132544)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+}
+
+over "OmniverseKit_Front" (
+    customData = {
+        dictionary omni = {
+            dictionary kit = {
+                bool hide_in_stage_window = 1
+                bool no_delete = 1
+            }
+        }
+    }
+    hide_in_stage_window = true
+    kind = "component"
+    no_delete = true
+)
+{
+    float2 clippingRange = (1, 10000000)
+    float horizontalAperture = 50
+    custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -5)
+    token projection = "orthographic"
+    float verticalAperture = 50
+    float3 xformOp:rotateXYZ = (90, -1.2722219e-14, 90)
+    float3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (5, 0, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+}
+
+over "OmniverseKit_Right" (
+    customData = {
+        dictionary omni = {
+            dictionary kit = {
+                bool hide_in_stage_window = 1
+                bool no_delete = 1
+            }
+        }
+    }
+    hide_in_stage_window = true
+    kind = "component"
+    no_delete = true
+)
+{
+    float2 clippingRange = (1, 10000000)
+    float horizontalAperture = 50
+    custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -5)
+    token projection = "orthographic"
+    float verticalAperture = 50
+    float3 xformOp:rotateXYZ = (90, 7.06225e-31, -1.2722219e-14)
+    float3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (0, -5, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+}
+
+over "OmniverseKit_Top" (
+    customData = {
+        dictionary omni = {
+            dictionary kit = {
+                bool hide_in_stage_window = 1
+                bool no_delete = 1
+            }
+        }
+    }
+    hide_in_stage_window = true
+    kind = "component"
+    no_delete = true
+)
+{
+    float2 clippingRange = (1, 10000000)
+    float horizontalAperture = 50
+    custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -5)
+    token projection = "orthographic"
+    float verticalAperture = 50
+    float3 xformOp:rotateXYZ = (1.2722219e-14, -7.016709e-15, -90)
+    float3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (0, 0, 5)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+}
+

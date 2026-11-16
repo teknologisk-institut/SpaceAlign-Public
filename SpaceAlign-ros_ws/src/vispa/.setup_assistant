@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: vispa
+    relative_path: urdf/VISPA_modifiedDH_Ros2.urdf
+  srdf:
+    relative_path: config/VISPA.srdf
+  package_settings:
+    author_name: madsrossen
+    author_email: mail@mail.com
+    generated_timestamp: 1765441549
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

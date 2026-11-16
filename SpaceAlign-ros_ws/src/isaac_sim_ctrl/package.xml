@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>isaac_sim_ctrl</name>
+  <version>0.0.0</version>
+  <description>TODO: Package description</description>
+  <maintainer email="mmo@teknogisk.dk">mmo</maintainer>
+  <license>TODO: License declaration</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>std_srvs</depend>
+  <depend>custom_srvs_msgs</depend>
+  <depend>controller_manager_msgs</depend>
+  <depend>nlohmann_json</depend>
+  <depend>rclcpp_action</depend>
+
+  <build_depend>rclcpp</build_depend>
+  <build_depend>simulation_interfaces</build_depend>
+  
+  <exec_depend>rclcpp</exec_depend>
+  <exec_depend>simulation_interfaces</exec_depend>
+  
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
